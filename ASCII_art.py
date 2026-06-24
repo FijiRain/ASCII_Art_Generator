@@ -12,9 +12,9 @@ import sys # remplacer en argparse
 
 
 def get_avg_L(tile: IM):
-    im = np.array(tile) # transform the tile in a grey level matrix [[a,b,c], [d, e, f], ...]
+    im = np.array(tile) # transform the tile in a grey-level matrix [[a,b,c], [d, e, f], ...]
     r, c = im.shape # get the dimension of the matrix 
-    return np.average(im.reshape(r*c)) # reshape() is used to transform im into a vector, and then calculate the mean value of the tile brightness
+    return np.average(im.reshape(r*c)) # reshape() is used to transform the entire matrix of r, c dimensions into a vector (matrix of 1 dim), and then calculate the mean value of the tile brightness
 
 def main():
     # Make it CLI, default = 80 cols | 0.43 scale
@@ -30,7 +30,7 @@ def main():
     W, H = image.size[0], image.size[1]  # store the image dimensions, .size() returns a tuple.
     w = W/cols  # tile width, each ASCII char will represents a "w" pixel-width zone
     h = w/scale  # tile height based on aspect ratio AND font in order to correct the deformation of the ASCII char
-    rows = int(H/h)  # # compute the number of rows to use in the final grid
+    rows = int(H/h) # compute the number of rows to use in the final grid
 
 
 
